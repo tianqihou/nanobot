@@ -24,7 +24,6 @@ class LiteLLMProvider(LLMProvider):
     ):
         super().__init__(api_key, api_base)
         self.default_model = default_model
-
         # Disable LiteLLM logging noise
         litellm.suppress_debug_info = True
 
@@ -50,7 +49,6 @@ class LiteLLMProvider(LLMProvider):
             LLMResponse with content and/or tool calls.
         """
         model = model or self.default_model
-
 
         kwargs: dict[str, Any] = {
             "model": model,
